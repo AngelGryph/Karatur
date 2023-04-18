@@ -1,0 +1,67 @@
+ACTION_IF NOT VARIABLE_IS_SET karatur_always
+BEGIN
+  OUTER_SET karatur_always = 1
+
+
+  // Check for Siege of Dragonspear DLC
+
+  ACTION_IF ((FILE_EXISTS ~dlc/sod-dlc.zip~) OR (FILE_EXISTS ~sod-dlc.zip~))
+  BEGIN
+    FAIL ~You need to prepare your SoD game before installing mods. Check the readme for more information and a link to download Modmerge or the DLC Merger.~
+  END
+
+
+  // Disable known broken areas and items from chitin.key.
+
+  ACTION_FOR_EACH broken IN xr2400.are xr2600.are iplot01k.itm iplot04g.itm iplot04h.itm iplot04i.itm
+  BEGIN
+    DISABLE_FROM_KEY ~%broken%~
+  END
+
+
+  // Set up cross-platform variables.
+
+  ACTION_IF GAME_IS "tutu tutu_totsc"
+  BEGIN
+    PRINT ~Tutu detected...~
+    INCLUDE ~%MOD_FOLDER%/lib/g3_bgt_cpmvars.tpa~
+  END
+
+  ACTION_IF GAME_IS "bgt"
+  BEGIN
+    PRINT ~Baldur's Gate Trilogy detected...~
+    INCLUDE ~%MOD_FOLDER%/lib/g3_bgt_cpmvars.tpa~
+  END
+
+  ACTION_IF GAME_IS "bgee"
+  BEGIN
+    PRINT ~Baldur's Gate: Enhanced Edition detected...~
+    INCLUDE ~%MOD_FOLDER%/lib/g3_bgee_cpmvars.tpa~
+  END
+
+  ACTION_IF GAME_IS "eet"
+  BEGIN
+    PRINT ~Enhanced Edition Trilogy detected...~
+    INCLUDE ~EET/other/cpmvars/eet_cpmvars.tpa~
+  END
+END
+
+
+// Handle charsets for EE games
+
+LAUNCH_ACTION_FUNCTION handle_charsets_immutably
+  RET	tra_loc
+END
+
+
+/*
+// Load EE-specific translation strings if needed.
+
+ACTION_IF ENGINE_IS "bgee bg2ee"
+BEGIN
+  LOAD_TRA ~%tra_loc%/%base_lang%/ktsetup-ee.tra~
+  LOAD_TRA ~%tra_loc%/%LANGUAGE%/ktsetup-ee.tra~
+END
+*/
+
+

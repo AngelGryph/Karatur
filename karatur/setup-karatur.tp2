@@ -1,800 +1,406 @@
-BACKUP ~karatur/Kbackup~
+BACKUP ~weidu_external/backup/karatur~
 AUTHOR ~Corsymyr~
 
-VERSION "v2"
+VERSION ~v2~
 
-BEGIN ~T'Was a Slow Boat from Kara-Tur~
+ASK_EVERY_COMPONENT
+AUTO_EVAL_STRINGS
 
-//Extending the Area Files
+ALWAYS
+  OUTER_TEXT_SPRINT external_loc "weidu_external"
+  OUTER_TEXT_SPRINT tra_base "language"
+  OUTER_TEXT_SPRINT tra_setup "ktsetup"
+  OUTER_TEXT_SPRINT ini_file "karatur"
 
-EXTEND_BOTTOM ~AR2300.bcs~ ~karatur/baf/kt2300.baf~
-EXTEND_BOTTOM ~AR3100.bcs~ ~karatur/baf/kt3100.baf~
+  INCLUDE "%MOD_FOLDER%/lib/sfo_immutable.tph"
+  INCLUDE "%MOD_FOLDER%/lib/kt_toolkit.tph"
 
-//Compile Dialog
+  INCLUDE "%MOD_FOLDER%/lib/always.tpa"
+END
 
-COMPILE ~karatur/DLG/KTMonk.d~
-COMPILE ~karatur/DLG/KTSirene.d~
 
-//Compile Scripts
+////////////////////////
+////////////////////////
+// Language Selection //
+////////////////////////
+////////////////////////
 
-COMPILE ~karatur/baf/KTSUC01.baf~
-COMPILE ~karatur/baf/KTGOL01.baf~
+LANGUAGE 
+         ~English~
+         ~english~
+         ~karatur/language/english/ktsetup.tra~
+         ~weidu_external/lang/karatur/english/ktsetup.tra~
 
-//Copying Creature Files
+BEGIN @5
 
-COPY ~karatur/bmp/Monk01_s.bmp~ ~override/Monk01_s.bmp~
-COPY ~karatur/cre/KTMonk01.cre~ ~override/KTmonk01.cre~
-  SAY 0x8 ~Seini Korasu~
-  SAY 0xC ~Seini Korasu~
-COPY ~karatur/cre/KTMonk02.cre~ ~override/KTmonk02.cre~
-  SAY 0x8 ~Kara-Tur Monk~
-  SAY 0xC ~Kara-Tur Monk~
-COPY ~karatur/bmp/Sirene_s.bmp~ ~override/Sirene_s.bmp~
-COPY ~karatur/cre/KTSuc01.cre~ ~override/KTsuc01.cre~
-  SAY 0x8 ~Alura~
-  SAY 0xC ~Alura~
-COPY ~karatur/cre/KTsiren1.cre~ ~override/KTsiren1.cre~
-  SAY 0x8 ~Sirene of Alura~
-  SAY 0xC ~Sirene of Alura~
-COPY ~karatur/cre/KTsiren2.cre~ ~override/KTsiren2.cre~
-  SAY 0x8 ~Sirene of Alura~
-  SAY 0xC ~Sirene of Alura~
-COPY ~karatur/cre/KTsiren3.cre~ ~override/KTsiren3.cre~
-  SAY 0x8 ~Sirene of Alura~
-  SAY 0xC ~Sirene of Alura~
-COPY ~karatur/cre/KTWiz01.cre~ ~override/KTWiz01.cre~
-  SAY 0x8 ~Sailor Mage of Alura~
-  SAY 0xC ~Sailor Mage of Alura~
-COPY ~karatur/cre/KTWiz02.cre~ ~override/KTWiz02.cre~
-  SAY 0x8 ~Sailor Mage of Alura~
-  SAY 0xC ~Sailor Mage of Alura~
-COPY ~karatur/cre/KTWiz03.cre~ ~override/KTWiz03.cre~
-  SAY 0x8 ~Sailor Mage of Alura~
-  SAY 0xC ~Sailor Mage of Alura~
-COPY ~karatur/cre/KTAss01.cre~ ~override/KTAss01.cre~
-  SAY 0x8 ~Sailor Rogue of Alura~
-  SAY 0xC ~Sailor Rogue of Alura~
-COPY ~karatur/cre/KTAss02.cre~ ~override/KTAss02.cre~
-  SAY 0x8 ~Sailor Rogue of Alura~
-  SAY 0xC ~Sailor Rogue of Alura~
-COPY ~karatur/cre/KTAss03.cre~ ~override/KTAss03.cre~
-  SAY 0x8 ~Sailor Rogue of Alura~
-  SAY 0xC ~Sailor Rogue of Alura~
-COPY ~karatur/cre/KTArch01.cre~ ~override/KTArch01.cre~
-  SAY 0x8 ~Sailor Archer of Alura~
-  SAY 0xC ~Sailor Archer of Alura~
-COPY ~karatur/cre/KTArch02.cre~ ~override/KTArch02.cre~
-  SAY 0x8 ~Sailor Archer of Alura~
-  SAY 0xC ~Sailor Archer of Alura~
-COPY ~karatur/cre/KTArch03.cre~ ~override/KTArch03.cre~
-  SAY 0x8 ~Sailor Archer of Alura~
-  SAY 0xC ~Sailor Archer of Alura~
-COPY ~karatur/cre/KTGolem.cre~ ~override/KTGolem.cre~
-  SAY 0x8 ~Golem of Alura~
-  SAY 0xC ~Golem of Alura~
+// Extending existing area scripts
 
-//Copying Item Files
+LAUNCH_ACTION_FUNCTION extend_area_script
+  STR_VAR
+  area		= "%FriendlyArmInn%"
+  bottom	= "%MOD_FOLDER%/baf/kt2300.baf"
+END
 
-COPY ~karatur/itm/KTsnow.itm~ ~override/KTsnow.itm~
-  SAY 0x8 ~Ice Crystal~
-  SAY 0xC ~Ice Crystal~
-  SAY 0x50 ~Ice Crystal~
-  SAY 0x54 ~Ice Crystal:
+LAUNCH_ACTION_FUNCTION extend_area_script
+  STR_VAR
+  area		= "%ShipwrecksCoast%"
+  bottom	= "%MOD_FOLDER%/baf/kt3100.baf"
+END
+
+
+// Compile Dialog
+
+COMPILE ~%MOD_FOLDER%/DLG/KTMonk.d~
+COMPILE ~%MOD_FOLDER%/DLG/KTSirene.d~
+
+// Compile Scripts
+
+COMPILE ~%MOD_FOLDER%/baf/KTSUC01.baf~
+COMPILE ~%MOD_FOLDER%/baf/KTGOL01.baf~
+
+// Installing Creature Files
+
+COPY ~%MOD_FOLDER%/bmp/Monk01_s.bmp~ ~override/Monk01_s.bmp~
+COPY ~%MOD_FOLDER%/cre/KTMonk01.cre~ ~override/KTmonk01.cre~
+  SAY NAME1 @6
+  SAY NAME2 @6
+COPY ~%MOD_FOLDER%/cre/KTMonk02.cre~ ~override/KTmonk02.cre~
+  SAY NAME1 @7
+  SAY NAME2 @7
+COPY ~%MOD_FOLDER%/bmp/Sirene_s.bmp~ ~override/Sirene_s.bmp~
+COPY ~%MOD_FOLDER%/cre/KTSuc01.cre~ ~override/KTsuc01.cre~
+  SAY NAME1 @8
+  SAY NAME2 @8
+COPY ~%MOD_FOLDER%/cre/KTsiren1.cre~ ~override/KTsiren1.cre~
+  SAY NAME1 @9
+  SAY NAME2 @9
+COPY ~%MOD_FOLDER%/cre/KTsiren2.cre~ ~override/KTsiren2.cre~
+  SAY NAME1 @9
+  SAY NAME2 @9
+COPY ~%MOD_FOLDER%/cre/KTsiren3.cre~ ~override/KTsiren3.cre~
+  SAY NAME1 @9
+  SAY NAME2 @9
+COPY ~%MOD_FOLDER%/cre/KTWiz01.cre~ ~override/KTWiz01.cre~
+  SAY NAME1 @10
+  SAY NAME2 @10
+COPY ~%MOD_FOLDER%/cre/KTWiz02.cre~ ~override/KTWiz02.cre~
+  SAY NAME1 @10
+  SAY NAME2 @10
+COPY ~%MOD_FOLDER%/cre/KTWiz03.cre~ ~override/KTWiz03.cre~
+  SAY NAME1 @10
+  SAY NAME2 @10
+COPY ~%MOD_FOLDER%/cre/KTAss01.cre~ ~override/KTAss01.cre~
+  SAY NAME1 @11
+  SAY NAME2 @11
+COPY ~%MOD_FOLDER%/cre/KTAss02.cre~ ~override/KTAss02.cre~
+  SAY NAME1 @11
+  SAY NAME2 @11
+COPY ~%MOD_FOLDER%/cre/KTAss03.cre~ ~override/KTAss03.cre~
+  SAY NAME1 @11
+  SAY NAME2 @11
+COPY ~%MOD_FOLDER%/cre/KTArch01.cre~ ~override/KTArch01.cre~
+  SAY NAME1 @12
+  SAY NAME2 @12
+COPY ~%MOD_FOLDER%/cre/KTArch02.cre~ ~override/KTArch02.cre~
+  SAY NAME1 @12
+  SAY NAME2 @12
+COPY ~%MOD_FOLDER%/cre/KTArch03.cre~ ~override/KTArch03.cre~
+  SAY NAME1 @12
+  SAY NAME2 @12
+COPY ~%MOD_FOLDER%/cre/KTGolem.cre~ ~override/KTGolem.cre~
+  SAY NAME1 @13
+  SAY NAME2 @13
+
+
+// Installing Item Files
+
+COPY ~%MOD_FOLDER%/itm/KTsnow.itm~ ~override/KTsnow.itm~
+  SAY NAME1 @14
+  SAY NAME2 @14
+  SAY UNIDENTIFIED_DESC @14
+  SAY IDENTIFIED_DESC @15
+
+COPY ~%MOD_FOLDER%/itm/KTRedB.itm~ ~override/KTRedB.itm~
+  SAY NAME1 @16
+  SAY NAME2 @17
+  SAY UNIDENTIFIED_DESC @16
+  SAY IDENTIFIED_DESC ~Red Bag:
   
-This strange item was given to you by an equally strange man named Seini Korasu. It is cold to the touch, but does not seem to absorb any of the warmth around it. While you cannot ascertain any usefulness to the item, Seini assures you that it is needed to retrieve the illustrious "Bag of Red" he is so adamantly in great desire of. It resembles a large snowflake made of ice blue crystal~
-
-COPY ~karatur/itm/KTRedB.itm~ ~override/KTRedB.itm~
-  SAY 0x8 ~Bag of Red~
-  SAY 0xC ~Red Bag~
-  SAY 0x50 ~Bag of Red~
-  SAY 0x54 ~Red Bag:
-  
-This must be the "Bag of Red" that Seini Korasu asked you to retrieve for him. Looking at the item it seems unreasonably heavy, but in proximity of the Ice Crystal, it becomes quite light and easy to move. You should return this to Seini Korasu as soon as possible.~
-
-COPY ~karatur/itm/KTblt01.itm~ ~override/KTblt01.itm~
-  SAY 0x8 ~Belt~
-  SAY 0xC ~Sash of the Initiate~
-  SAY 0x50 ~Belt~
-  SAY 0x54 ~Sash of the Initiate:
-  
-This sash is indicative of those worn by Mages from the Eastern Relams. It grants the wearer a level of higher learning, and an improved sense of fortitude
-
-Statistics:
-Adds +1 to Intelligence
-Adds +5 Hitpoints
-Weight: 2~
-
-COPY ~karatur/itm/KTblt02.itm~ ~override/KTblt02.itm~
-  SAY 0x8 ~Belt~
-  SAY 0xC ~Belt of the Wise~
-  SAY 0x50 ~Belt~
-  SAY 0x54 ~Belt of the Wise:
-
-This belt benifits it's wearer by imparting additional Wisdom to the wearer, in addition it allows the absorbtion of some of the electrical damage focused on the wearer.
-
-Statistics:
-Adds +1 to Wisdom
-Reduces Electrical Damage by 25%
-Weight: 2~
-
-COPY ~karatur/itm/KTblt03.itm~ ~override/KTblt03.itm~
-  SAY 0x8 ~Belt~
-  SAY 0xC ~Belt of Luck~
-  SAY 0x50 ~Belt~
-  SAY 0x54 ~Belt of Luck:
-
-This belt works to insure that one is able to have an edge against any situation with an added sense of luck. The wearer of thsi belt aslo gains more insight into magical items and their workings.
-
-Statistics:
-Adds +10 to Lore
-Adds +5 to Luck
-Weight: 2~
-
-COPY ~karatur/itm/KTboot01.itm~ ~override/KTboot01.itm~
-  SAY 0x8 ~Boots~
-  SAY 0xC ~Tabi Boots~
-  SAY 0x50 ~Boots~
-  SAY 0x54 ~Tabi Boots:
-  
-These boots are granted to Ninja's throughout Kara Tur. They benefit the wearer in stealth and blending into the environment. If the wearer can backstab they also allow for an extra multiplier to the backstab modifier.
-
-Such benefits have a cost.
-
-Statistics:
-Adds +20% Move Silently
-Adds +20% Hide
-+ 1 Step in Backstab Modifier
--1 Constitution
-Weight: 4~
-
-COPY ~karatur/itm/KTbrc01.itm~ ~override/KTbrc01.itm~
-  SAY 0x8 ~Bracers~
-  SAY 0xC ~Gloves of Missile Snaring~
-  SAY 0x50 ~Bracers~
-  SAY 0x54 ~Gloves of Missile Snaring:
-  
-Gloves of Missile Snaring
-Foik Morur demonstrated the effectiveness of these gloves at a community fair near Beregost several years back. He paid a local Archer to fire arrows at him. As the arrows approached, Foik's hands would move of their own accord, either knocking the arrow away or catching it. He earned more than a few pieces of gold for his troubles, and these earnings attracted some shadowy figures to Foik's tent that evening. The next morning, Foik was found dead and the gloves missing.
-
-STATISTICS
-
-Armor Class: +2 vs. missile attacks
-
-Weight: 2~
-
-COPY ~karatur/itm/KTbrc02.itm~ ~override/KTbrc02.itm~
-  SAY 0x8 ~Bracers~
-  SAY 0xC ~Fists of Poison~
-  SAY 0x50 ~Bracers~
-  SAY 0x54 ~Fist of Poison:
-  
-These gloves are mearly wraps around one's fists. These particular wraps are intertwinined with poisoned glass and adds poision damage to creatures.
-
-STATISTICS
-
-+3 Posion damage
-
-Weight: 2~
-
-COPY ~karatur/itm/KTbrc03.itm~ ~override/KTbrc03.itm~
-  SAY 0x8 ~Bracers~
-  SAY 0xC ~Fists of Fire~
-  SAY 0x50 ~Bracers~
-  SAY 0x54 ~Fist of Fire:
-  
-These gloves are mearly wraps around one's fists. These particular wraps are intertwinined with magical embers and add fire damage to creatures.
-
-STATISTICS
-
-+3 Fire damage
-
-Weight: 2~
-
-COPY ~karatur/itm/KTbrc04.itm~ ~override/KTbrc04.itm~
-  SAY 0x8 ~Bracers~
-  SAY 0xC ~Fists of Shock~
-  SAY 0x50 ~Bracers~
-  SAY 0x54 ~Fist of Shock:
-  
-These gloves are mearly wraps around one's fists. These particular wraps are intertwinined with magical energy globes and add energy damage to creatures.
-
-STATISTICS
-
-+3 Electrical damage
-
-Weight: 2~
-
-COPY ~karatur/itm/KTdag01.itm~ ~override/KTdag01.itm~
-  SAY 0x8 ~Claw~
-  SAY 0xC ~Masterwork Claw~
-  SAY 0x50 ~Claw~
-  SAY 0x54 ~Masterwork Claw:
-  
-Claw weapons are used often in Kara Tur by Ninja to inflict great damage while not showing a weapon in hand. These claw weapons inflict Piercing, Slashing and Blunt damage in one weapon, as the claws penetrate, the sweeping movement causes slashing, and as the fist comes into contact with the opponent, blunt damage is inflicted. This item was Masterworked and therefore causes an additional point of damage.
-
-STATISTICS:
-
-1d2 Piercing Damage
-1d2 Slashing Damage
-1d2 Blunt Damage
-3d2 Damage total
-+1 Damage Masterwork
-Weight: 2~
-
-COPY ~karatur/itm/KTdag02.itm~ ~override/KTdag02.itm~
-  SAY 0x8 ~Claw~
-  SAY 0xC ~Claw +1~
-  SAY 0x50 ~Claw~
-  SAY 0x54 ~Claw +1:
-  
-Claw weapons are used often in Kara Tur by Ninja to inflict great damage while not showing a weapon in hand. These claw weapons inflict Piercing, Slashing and Blunt damage in one weapon, as the claws penetrate, the sweeping movement causes slashing, and as the fist comes into contact with the opponent, blunt damage is inflicted.
-
-STATISTICS:
-
-1d2+1 Piercing Damage
-1d2+1 Slashing Damage
-1d2+1 Blunt Damage
-3d2+3 Damage total
-+1 Thac0
-Weight: 2~
-
-COPY ~karatur/itm/KTgb01.itm~ ~override/KTgb01.itm~
-  SAY 0x8 ~Garb~
-  SAY 0xC ~Monk Grab of Obedience~
-  SAY 0x50 ~Garb~
-  SAY 0x54 ~Monk Garb of Obedience:
-
-Monk Garb
-The simplest of clothing created by weaving silken fabrics intertwined with the Monk's own Chi power to protect the wearer on his travels.
-
-STATISTICS:
-Armor Class: -1
-Requires 12 Wisdom
-Weight:4~
-
-COPY ~karatur/itm/KTgb02.itm~ ~override/KTgb02.itm~
-  SAY 0x8 ~Garb~
-  SAY 0xC ~Monk Grab of the Robe Bearer~
-  SAY 0x50 ~Garb~
-  SAY 0x54 ~Monk Garb of the Robe Bearer:
-
-Monk Garb
-The simplest of clothing created by weaving silken fabrics intertwined with the Monk's own Chi power to protect the wearer on his travels.
-
-STATISTICS:
-Armor Class: -2
-Requires 14 Wisdom
-Weight:4~
-
-COPY ~karatur/itm/KTgb03.itm~ ~override/KTgb03.itm~
-  SAY 0x8 ~Garb~
-  SAY 0xC ~Monk Grab of the Cross Bearer~
-  SAY 0x50 ~Garb~
-  SAY 0x54 ~Monk Garb of the Cross Bearer:
-
-Monk Garb
-The simplest of clothing created by weaving silken fabrics intertwined with the Monk's own Chi power to protect the wearer on his travels.
-
-STATISTICS:
-Armor Class: -3
-Requires 16 Wisdom
-Weight:4~
-
-COPY ~karatur/itm/KTgb04.itm~ ~override/KTgb04.itm~
-  SAY 0x8 ~Garb~
-  SAY 0xC ~Monk Grab of the Great Schema~
-  SAY 0x50 ~Garb~
-  SAY 0x54 ~Monk Garb of the Great Schema:
-
-Monk Garb
-The simplest of clothing created by weaving silken fabrics intertwined with the Monk's own Chi power to protect the wearer on his travels.
-
-STATISTICS:
-Armor Class: -4
-Requires 18 Wisdom
-Weight:4~
-
-COPY ~karatur/itm/KTgb05.itm~ ~override/KTgb05.itm~
-  SAY 0x8 ~Garb~
-  SAY 0xC ~Monk Grab of the Elder~
-  SAY 0x50 ~Garb~
-  SAY 0x54 ~Monk Garb of the Elder:
-
-Monk Garb
-The simplest of clothing created by weaving silken fabrics intertwined with the Monk's own Chi power to protect the wearer on his travels.
-
-STATISTICS:
-Armor Class: -5
-Requires 20 Wisdom
-Weight:4~
-
-COPY ~karatur/itm/KTpa01.itm~ ~override/KTpa01.itm~
-  SAY 0x8 ~Polearm~
-  SAY 0xC ~Masterwork Kwan Dao~
-  SAY 0x50 ~Polearm~
-  SAY 0x54 ~Masterwork Kwan Dao:
-
-This is the polearm of choice by most Karaturan Foot Soldiers. The bite of this weapon is strong, and can take a rider off his mount in one strike.
-
-STATISTICS:
-Damage 1d12
-+1 Damage Masterwork
-Weight:4~
-
-COPY ~karatur/itm/KTpa02.itm~ ~override/KTpa02.itm~
-  SAY 0x8 ~Polearm~
-  SAY 0xC ~+1 Kwan Dao~
-  SAY 0x50 ~Polearm~
-  SAY 0x54 ~+1 Kwan Dao:
-
-This is the polearm of choice by most Karaturan Foot Soldiers. The bite of this weapon is strong, and can take a rider off his mount in one strike.
-
-STATISTICS:
-Damage 1d12+1
-Thac0 +1
-Weight:4~
-
-COPY ~karatur/itm/KTSP201.itm~ ~override/KTSP201.itm~
-  SAY 0x8 ~Pudao~
-  SAY 0xC ~Masterwok Pudao~
-  SAY 0x50 ~Pudao~
-  SAY 0x54 ~Masterwork Pudao:
-
-One of the earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end. When the civilized races mastered metals, spearheads were made from iron and steel. Having reached this end, weaponsmiths began experimenting with different types of spearheads, thus leading to the development of certain polearm types.
-
-STATISTICS:
-
-THAC0: +0
-Damage: 1d8 (piercing)
-+1 Damage Masterwork
-Speed Factor: 4
-Proficiency Type: Spear
-Type: Two-handed
-Requires: 5 Strength
-Weight: 3~
-
-COPY ~karatur/itm/KTSP202.itm~ ~override/KTSP202.itm~
-  SAY 0x8 ~Pudao~
-  SAY 0xC ~Pudao +1~
-  SAY 0x50 ~Pudao~
-  SAY 0x54 ~Pudao +1
-
-One of the earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end. When the civilized races mastered metals, spearheads were made from iron and steel. Having reached this end, weaponsmiths began experimenting with different types of spearheads, thus leading to the development of certain polearm types.
-
-STATISTICS:
-
-THAC0: +1
-Damage: 1d8 (piercing)
-+1 Damage
-Speed Factor: 4
-Proficiency Type: Spear 
-Type: Two-handed
-Requires:
-5 Strength
-Weight: 3~
-
-COPY ~karatur/itm/KTST201.itm~ ~override/KTST201.itm~
-  SAY 0x8 ~Bo Staff~
-  SAY 0xC ~Masterwork Bo Staff~
-  SAY 0x50 ~Bo Staff~
-  SAY 0x54 ~Masterwork Bo Staff
-
-The simplest and humblest of staff weapons, the Bo Staff is a length of wood ranging six to nine feet in length. Masterwork Bo Staffs are made of stout oak and are shod with metal at both ends. The Bo Staff must be wielded with both hands.
-
-STATISTICS:
-
-Damage: 1d10 (crushing)
-+1 Damage
-Speed Factor: 6
-Proficiency Type: Quarterstaff
-Type: Two-handed
-Requires: 5 Strength
-Weight: 4~
-
-COPY ~karatur/itm/KTST202.itm~ ~override/KTST02.itm~
-  SAY 0x8 ~Bo Staff~
-  SAY 0xC ~Bo Staff +1~
-  SAY 0x50 ~Bo Staff~
-  SAY 0x54 ~Bo Staff +1
-
-The simplest and humblest of staff weapons, the Bo Staff is a length of wood ranging six to nine feet in length. Masterwork Bo Staffs are made of stout oak and are shod with metal at both ends. The Bo Staff must be wielded with both hands.
-
-STATISTICS:
-
-Damage: 1d10 (crushing)
-+1 Thac0
-+1 Damage
-Speed Factor: 6
-Proficiency Type: Quarterstaff
-Type: Two-handed
-Requires: 5 Strength
-Weight: 4~
-
-COPY ~karatur/itm/KTSW101.itm~ ~override/KTSW101.itm~
-  SAY 0x8 ~Katana~
-  SAY 0xC ~Masterwork Katana~
-  SAY 0x50 ~Katana~
-  SAY 0x54 ~Masterwork Katana
-
-The katana is a single-edged, slightly curved sword that ends with a chisel point. The katana is perhaps one of the finest swords ever made, the steps to its creation a long and secret process that is more art form than anything else. This blade is an important facet of Kara-Turan culture. To touch or wield a samurai's katana is to insult the samurai and to incite his wrath. For a gaijin, or foreigner, to own such a blade is a rare occurrence. Either the gaijin is a greatly honored friend of an important minister, or the gaijin has murdered a samurai.
-
-STATISTICS:
-
-Damage: 1d10 (slashing)
-+1 Damage
-Speed Factor: 4
-Proficiency Type: Katana
-Type: One-handed
-Requires:
-6 Strength
-Weight: 6~
-
-COPY ~karatur/itm/KTSW102.itm~ ~override/KTSW102.itm~
-  SAY 0x8 ~Katana~
-  SAY 0xC ~Katana +1~
-  SAY 0x50 ~Katana~
-  SAY 0x54 ~Katana +1
-
-The katana is a single-edged, slightly curved sword that ends with a chisel point. The katana is perhaps one of the finest swords ever made, the steps to its creation a long and secret process that is more art form than anything else. This blade is an important facet of Kara-Turan culture. To touch or wield a samurai's katana is to insult the samurai and to incite his wrath. For a gaijin, or foreigner, to own such a blade is a rare occurrence. Either the gaijin is a greatly honored friend of an important minister, or the gaijin has murdered a samurai.
-
-STATISTICS:
-
-Damage: 1d10 (slashing)
-+1 Thac0
-+1 Damage
-Speed Factor: 4
-Proficiency Type: Katana
-Type: One-handed
-Requires:
-6 Strength
-Weight: 6~
-
-COPY ~karatur/itm/KTSW103.itm~ ~override/KTSW103.itm~
-  SAY 0x8 ~Wakizashi~
-  SAY 0xC ~Masterwork Wakizashi~
-  SAY 0x50 ~Wakizashi~
-  SAY 0x54 ~Masterworked Wakizashi
-
-The wakizashi, or companion sword, is extremely important to samurai. It is worn at all times, even indoors, and is near the samurai when he sleeps at night. As finely made as the katana, the wakizashi, a shorter sword with a length between twelve and twenty-four inches, is a dangerous weapon in the hands of a skilled user.
-
-STATISTICS
-
-Damage: 1d8 (piercing)
-+1 Damage
-Speed Factor: 3
-Proficiency Type: Scimitar/Wakizashi/Ninjatō
-Type: One-handed
-Requires:5 Strength
-Weight: 3~
-
-COPY ~karatur/itm/KTSW104.itm~ ~override/KTSW104.itm~
-  SAY 0x8 ~Wakizashi~
-  SAY 0xC ~Wakizashi +1~
-  SAY 0x50 ~Wakizashi~
-  SAY 0x54 ~Wakizashi +1
-
-The wakizashi, or companion sword, is extremely important to samurai. It is worn at all times, even indoors, and is near the samurai when he sleeps at night. As finely made as the katana, the wakizashi, a shorter sword with a length between twelve and twenty-four inches, is a dangerous weapon in the hands of a skilled user.
-
-STATISTICS
-
-Damage: 1d8 (piercing)
-+1 Thac0
-+1 Damage
-Speed Factor: 3
-Proficiency Type: Scimitar/Wakizashi/Ninjatō
-Type: One-handed
-Requires:5 Strength
-Weight: 3~
-
-COPY ~karatur/itm/KTSW105.itm~ ~override/KTSW105.itm~
-  SAY 0x8 ~Ninjato~
-  SAY 0xC ~Masterwork Ninjato~
-  SAY 0x50 ~Ninjato~
-  SAY 0x54 ~Masterworked Ninjato
-
-The sword of the ninja, the ninjatō, is of lower quality than other Kara-Turan blades such as the katana. The ninjatō is short with a straight blade, making it ideal for subterfuge. The ninjatō is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
-
-STATISTICS
-
-Damage: 1d8 (slashing)
-+1 Damage
-Speed Factor: 4
-Proficiency Type: Scimitar/Wakizashi/Ninjatō
-Type: One-handed
-Requires:6 Strength
-Weight: 5~
-
-COPY ~karatur/itm/KTSW106.itm~ ~override/KTSW106.itm~
-  SAY 0x8 ~Ninjato~
-  SAY 0xC ~+1 Ninjato~
-  SAY 0x50 ~Ninjato~
-  SAY 0x54 ~+1 Ninjato
-
-The sword of the ninja, the ninjatō, is of lower quality than other Kara-Turan blades such as the katana. The ninjatō is short with a straight blade, making it ideal for subterfuge. The ninjatō is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
-
-STATISTICS
-
-Damage: 1d8 (slashing)
-+1 Thac0
-+1 Damage
-Speed Factor: 4
-Proficiency Type: Scimitar/Wakizashi/Ninjatō
-Type: One-handed
-Requires:6 Strength
-Weight: 5~
-
-COPY ~karatur/itm/KTSW201.itm~ ~override/KTSW201.itm~
-  SAY 0x8 ~No-Dachi~
-  SAY 0xC ~Masterwork No-Dachi~
-  SAY 0x50 ~No-Dachi~
-  SAY 0x54 ~Masterwork No-Dachi
-
-The No-Dachi sword is a derivative of the Katana. Karaturan Weaponsmiths have always looked for ways to improve existing weapons. In an effort to improve the Katana, the blade was lengthened. Eventually, the handle had to be extended and two hands became necessary to properly swing the sword. The primary function of No-Dachi swords is cleaving mounted knights and breaking up pike formations. This one is particularly good at its job as it has been enchanced by masterworking the item.
-
-STATISTICS:
-
-Damage: 2d8 (slashing)
-+1 Damage
-Speed Factor: 3
-Proficiency Type: Two-handed Sword
-Type: Two-handed
-Requires: 14 Strength
-Weight: 12~
-
-COPY ~karatur/itm/KTSW202.itm~ ~override/KTSW202.itm~
-  SAY 0x8 ~No-Dachi~
-  SAY 0xC ~+1 No-Dachi~
-  SAY 0x50 ~No-Dachi~
-  SAY 0x54 ~+1 No-Dachi
-
-The No-Dachi sword is a derivative of the Katana. Karaturan Weaponsmiths have always looked for ways to improve existing weapons. In an effort to improve the Katana, the blade was lengthened. Eventually, the handle had to be extended and two hands became necessary to properly swing the sword. The primary function of No-Dachi swords is cleaving mounted knights and breaking up pike formations. This one is particularly good at its job as it has been enchanted with a few magical properties.
-
-STATISTICS:
-
-Damage: 2d8 (slashing)
-+1 Thac0
-+1 Damage
-Speed Factor: 3
-Proficiency Type: Two-handed Sword
-Type: Two-handed
-Requires: 14 Strength
-Weight: 12~
-
-COPY ~karatur/itm/KTSHUR01.itm~ ~override/KTSHUR01.itm~
-  SAY 0x8 ~Shuriken~
-  SAY 0xC ~Masterwork Shuriken~
-  SAY 0x50 ~Shuriken~
-  SAY 0x54 ~Masterwork Shuriken
-
-A shuriken, "sword hidden in the hand" is a traditional Kara-Tur concealed weapon that is generally used for throwing. They are sharpened hand-held blades made from a variety of everyday items, such as needles, nails, and knives, as well as coins, washers, and other flat plates of metal. Shuriken is the name given to any small-bladed object that is traditionally used to indicate the well-known "throwing star".
-
-
-STATISTICS:
-
-THAC0: +0
-Damage:  1D2+1
-Damage type:  Piercing
-Weight:  1
-Speed Factor: 0
-Proficiency Type: Dart
-Type:  Thrown~
-
-COPY ~karatur/itm/KTSHUR02.itm~ ~override/KTSHUR02.itm~
-  SAY 0x8 ~Shuriken~
-  SAY 0xC ~Shuriken +1~
-  SAY 0x50 ~Shuriken~
-  SAY 0x54 ~Shuriken +1
-
-A shuriken, "sword hidden in the hand" is a traditional Kara-Tur concealed weapon that is generally used for throwing. They are sharpened hand-held blades made from a variety of everyday items, such as needles, nails, and knives, as well as coins, washers, and other flat plates of metal. Shuriken is the name given to any small-bladed object that is traditionally used to indicate the well-known "throwing star".
-
-
-STATISTICS:
-
-THAC0: +1
-Damage:  1D2+1
-Damage type:  Piercing
-Weight:  1
-Speed Factor: 0
-Proficiency Type: Dart
-Type:  Thrown~
+This must be the @16 that Seini Korasu asked you to retrieve for him. Looking at the item it seems unreasonably heavy, but in proximity of the Ice Crystal, it becomes quite light and easy to move. You should return this to Seini Korasu as soon as possible.~
+
+COPY ~%MOD_FOLDER%/itm/KTblt01.itm~ ~override/KTblt01.itm~
+  SAY NAME1 @19
+  SAY NAME2 @20
+  SAY UNIDENTIFIED_DESC @19
+  SAY IDENTIFIED_DESC @21
+
+COPY ~%MOD_FOLDER%/itm/KTblt02.itm~ ~override/KTblt02.itm~
+  SAY NAME1 @19
+  SAY NAME2 @22
+  SAY UNIDENTIFIED_DESC @19
+  SAY IDENTIFIED_DESC @23
+
+COPY ~%MOD_FOLDER%/itm/KTblt03.itm~ ~override/KTblt03.itm~
+  SAY NAME1 @19
+  SAY NAME2 @24
+  SAY UNIDENTIFIED_DESC @19
+  SAY IDENTIFIED_DESC @25
+
+COPY ~%MOD_FOLDER%/itm/KTboot01.itm~ ~override/KTboot01.itm~
+  SAY NAME1 @26
+  SAY NAME2 @27
+  SAY UNIDENTIFIED_DESC @26
+  SAY IDENTIFIED_DESC @28
+
+COPY ~%MOD_FOLDER%/itm/KTbrc01.itm~ ~override/KTbrc01.itm~
+  SAY NAME1 @29
+  SAY NAME2 @30
+  SAY UNIDENTIFIED_DESC @29
+  SAY IDENTIFIED_DESC @31
+
+COPY ~%MOD_FOLDER%/itm/KTbrc02.itm~ ~override/KTbrc02.itm~
+  SAY NAME1 @29
+  SAY NAME2 @32
+  SAY UNIDENTIFIED_DESC @29
+  SAY IDENTIFIED_DESC @33
+
+COPY ~%MOD_FOLDER%/itm/KTbrc03.itm~ ~override/KTbrc03.itm~
+  SAY NAME1 @29
+  SAY NAME2 @34
+  SAY UNIDENTIFIED_DESC @29
+  SAY IDENTIFIED_DESC @35
+
+COPY ~%MOD_FOLDER%/itm/KTbrc04.itm~ ~override/KTbrc04.itm~
+  SAY NAME1 @29
+  SAY NAME2 @36
+  SAY UNIDENTIFIED_DESC @29
+  SAY IDENTIFIED_DESC @37
+
+COPY ~%MOD_FOLDER%/itm/KTdag01.itm~ ~override/KTdag01.itm~
+  SAY NAME1 @38
+  SAY NAME2 @39
+  SAY UNIDENTIFIED_DESC @38
+  SAY IDENTIFIED_DESC @40
+
+COPY ~%MOD_FOLDER%/itm/KTdag02.itm~ ~override/KTdag02.itm~
+  SAY NAME1 @38
+  SAY NAME2 @41
+  SAY UNIDENTIFIED_DESC @38
+  SAY IDENTIFIED_DESC @42
+
+COPY ~%MOD_FOLDER%/itm/KTgb01.itm~ ~override/KTgb01.itm~
+  SAY NAME1 @43
+  SAY NAME2 @44
+  SAY UNIDENTIFIED_DESC @43
+  SAY IDENTIFIED_DESC @45
+
+COPY ~%MOD_FOLDER%/itm/KTgb02.itm~ ~override/KTgb02.itm~
+  SAY NAME1 @43
+  SAY NAME2 @46
+  SAY UNIDENTIFIED_DESC @43
+  SAY IDENTIFIED_DESC @47
+
+COPY ~%MOD_FOLDER%/itm/KTgb03.itm~ ~override/KTgb03.itm~
+  SAY NAME1 @43
+  SAY NAME2 @48
+  SAY UNIDENTIFIED_DESC @43
+  SAY IDENTIFIED_DESC @49
+
+COPY ~%MOD_FOLDER%/itm/KTgb04.itm~ ~override/KTgb04.itm~
+  SAY NAME1 @43
+  SAY NAME2 @50
+  SAY UNIDENTIFIED_DESC @43
+  SAY IDENTIFIED_DESC @51
+
+COPY ~%MOD_FOLDER%/itm/KTgb05.itm~ ~override/KTgb05.itm~
+  SAY NAME1 @43
+  SAY NAME2 @52
+  SAY UNIDENTIFIED_DESC @43
+  SAY IDENTIFIED_DESC @53
+
+COPY ~%MOD_FOLDER%/itm/KTpa01.itm~ ~override/KTpa01.itm~
+  SAY NAME1 @54
+  SAY NAME2 @55
+  SAY UNIDENTIFIED_DESC @54
+  SAY IDENTIFIED_DESC @56
+
+COPY ~%MOD_FOLDER%/itm/KTpa02.itm~ ~override/KTpa02.itm~
+  SAY NAME1 @54
+  SAY NAME2 @57
+  SAY UNIDENTIFIED_DESC @54
+  SAY IDENTIFIED_DESC @58
+
+COPY ~%MOD_FOLDER%/itm/KTSP201.itm~ ~override/KTSP201.itm~
+  SAY NAME1 @59
+  SAY NAME2 @60
+  SAY UNIDENTIFIED_DESC @59
+  SAY IDENTIFIED_DESC @61
+
+COPY ~%MOD_FOLDER%/itm/KTSP202.itm~ ~override/KTSP202.itm~
+  SAY NAME1 @59
+  SAY NAME2 @62
+  SAY UNIDENTIFIED_DESC @59
+  SAY IDENTIFIED_DESC @63
+
+COPY ~%MOD_FOLDER%/itm/KTST201.itm~ ~override/KTST201.itm~
+  SAY NAME1 @64
+  SAY NAME2 @65
+  SAY UNIDENTIFIED_DESC @64
+  SAY IDENTIFIED_DESC @66
+
+COPY ~%MOD_FOLDER%/itm/KTST202.itm~ ~override/KTST02.itm~
+  SAY NAME1 @64
+  SAY NAME2 @67
+  SAY UNIDENTIFIED_DESC @64
+  SAY IDENTIFIED_DESC @68
+
+COPY ~%MOD_FOLDER%/itm/KTSW101.itm~ ~override/KTSW101.itm~
+  SAY NAME1 @69
+  SAY NAME2 @70
+  SAY UNIDENTIFIED_DESC @69
+  SAY IDENTIFIED_DESC @71
+
+COPY ~%MOD_FOLDER%/itm/KTSW102.itm~ ~override/KTSW102.itm~
+  SAY NAME1 @69
+  SAY NAME2 @72
+  SAY UNIDENTIFIED_DESC @69
+  SAY IDENTIFIED_DESC @73
+
+COPY ~%MOD_FOLDER%/itm/KTSW103.itm~ ~override/KTSW103.itm~
+  SAY NAME1 @74
+  SAY NAME2 @75
+  SAY UNIDENTIFIED_DESC @74
+  SAY IDENTIFIED_DESC @76
+
+COPY ~%MOD_FOLDER%/itm/KTSW104.itm~ ~override/KTSW104.itm~
+  SAY NAME1 @74
+  SAY NAME2 @77
+  SAY UNIDENTIFIED_DESC @74
+  SAY IDENTIFIED_DESC @78
+
+COPY ~%MOD_FOLDER%/itm/KTSW105.itm~ ~override/KTSW105.itm~
+  SAY NAME1 @79
+  SAY NAME2 @80
+  SAY UNIDENTIFIED_DESC @79
+  SAY IDENTIFIED_DESC @81
+
+COPY ~%MOD_FOLDER%/itm/KTSW106.itm~ ~override/KTSW106.itm~
+  SAY NAME1 @79
+  SAY NAME2 @82
+  SAY UNIDENTIFIED_DESC @79
+  SAY IDENTIFIED_DESC @83
+
+COPY ~%MOD_FOLDER%/itm/KTSW201.itm~ ~override/KTSW201.itm~
+  SAY NAME1 @84
+  SAY NAME2 @85
+  SAY UNIDENTIFIED_DESC @84
+  SAY IDENTIFIED_DESC @86
+
+COPY ~%MOD_FOLDER%/itm/KTSW202.itm~ ~override/KTSW202.itm~
+  SAY NAME1 @84
+  SAY NAME2 @87
+  SAY UNIDENTIFIED_DESC @84
+  SAY IDENTIFIED_DESC @88
+
+COPY ~%MOD_FOLDER%/itm/KTSHUR01.itm~ ~override/KTSHUR01.itm~
+  SAY NAME1 @89
+  SAY NAME2 @90
+  SAY UNIDENTIFIED_DESC @89
+  SAY IDENTIFIED_DESC @91
+
+COPY ~%MOD_FOLDER%/itm/KTSHUR02.itm~ ~override/KTSHUR02.itm~
+  SAY NAME1 @89
+  SAY NAME2 @92
+  SAY UNIDENTIFIED_DESC @89
+  SAY IDENTIFIED_DESC @93
 
 //Copying Relics
 
-COPY ~karatur/itm/KTSP2R.itm~ ~override/KTSP2R.itm~
-  SAY 0x8 ~Pudao~
-  SAY 0xC ~Trident of Impaling~
-  SAY 0x50 ~Pudao~
-  SAY 0x54 ~Trident of Impaling
+COPY ~%MOD_FOLDER%/itm/KTSP2R.itm~ ~override/KTSP2R.itm~
+  SAY NAME1 @59
+  SAY NAME2 @94
+  SAY UNIDENTIFIED_DESC @59
+  SAY IDENTIFIED_DESC @95
 
-This spear has a triple pronged head known as a trident secured to it's end. The sharp nature of this item allows it to cause critical damage more often than other of it's type.
+COPY ~%MOD_FOLDER%/itm/KTSW202R.itm~ ~override/KTSW202R.itm~
+  SAY NAME1 @84
+  SAY NAME2 @96
+  SAY UNIDENTIFIED_DESC @84
+  SAY IDENTIFIED_DESC @97
 
-SPECIAL:
-Critical range for this weapon is 17-20.
+COPY ~%MOD_FOLDER%/itm/KTSHUR03.itm~ ~override/KTSHUR03.itm~
+  SAY NAME1 @89
+  SAY NAME2 @98
+  SAY UNIDENTIFIED_DESC @89
+  SAY IDENTIFIED_DESC @99
 
-STATISTICS:
+COPY ~%MOD_FOLDER%/itm/KTHLM01.itm~ ~override/KTHLM01.itm~
+  SAY NAME1 @100
+  SAY NAME2 @101
+  SAY UNIDENTIFIED_DESC @100
+  SAY IDENTIFIED_DESC @102
 
-THAC0: +2
-Damage: 1d10 (piercing)
-+2 Damage
-Speed Factor: 4
-Proficiency Type: Spear 
-Type: Two-handed
-Requires:
-5 Strength
-Weight: 3~
+COPY ~%MOD_FOLDER%/itm/KTHLM02.itm~ ~override/KTHLM02.itm~
+  SAY NAME1 @100
+  SAY NAME2 @101
+  SAY UNIDENTIFIED_DESC @100
+  SAY IDENTIFIED_DESC @103
 
-COPY ~karatur/itm/KTSW202R.itm~ ~override/KTSW202R.itm~
-  SAY 0x8 ~No-Dachi~
-  SAY 0xC ~Ronin's Bane~
-  SAY 0x50 ~No-Dachi~
-  SAY 0x54 ~Ronin's Bane
+COPY ~%MOD_FOLDER%/itm/KTHLM03.itm~ ~override/KTHLM03.itm~
+  SAY NAME1 @100
+  SAY NAME2 @101
+  SAY UNIDENTIFIED_DESC @100
+  SAY IDENTIFIED_DESC @104
 
-This No-Dachi was used by a famous Samurai to hunt down Ronin from his order. The sword offers a strong offense as well as additional defensive ability.
-
-SPECIAL:
--1 AC while equipped
-
-STATISTICS:
-
-Damage: 2d8 (slashing)
-+2 Thac0
-+2 Damage
-Speed Factor: 3
-Proficiency Type: Two-handed Sword
-Type: Two-handed
-Requires: 14 Strength
-Weight: 12~
-
-COPY ~karatur/itm/KTSHUR03.itm~ ~override/KTSHUR03.itm~
-  SAY 0x8 ~Shuriken~
-  SAY 0xC ~Shuriken of the Shou Ninja~
-  SAY 0x50 ~Shuriken~
-  SAY 0x54 ~Shuriken of the Shou Ninja
-
-How this rare item made it from Kara-Tur to the Sword Coast is quite a mystery. What is known however, is that these rare Shurikens are given to Shou Ninja's for special missions. Even an average person can throw these projectiles with great accuracy and speed.
-
-SPECIAL:
-
-- This Shuriken will return to the hand of it's owner.
-- Weilder can throw this weapon 3 times a round while equipped.
-- Adds Strength Bonus (if any) to damage.
-
-STATISTICS:
-
-THAC0: +2
-Damage:  1D2+4
-Damage type:  Piercing
-Weight:  1
-Speed Factor: 0
-Proficiency Type: Dart
-Type:  Thrown~
-
-COPY ~karatur/itm/KTHLM01.itm~ ~override/KTHLM01.itm~
-  SAY 0x8 ~Stone Eye~
-  SAY 0xC ~Left Eye of Genzou~
-  SAY 0x50 ~Stone Eye~
-  SAY 0x54 ~Left Eye of Genzou
-
-Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastary, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
-
-Rank I Statistics:
-
-Blindness -4 Thac0, +4 AC, Reduced Vision and Movement Rate
--1 Dexterity
-Protection from all forms of Gaze Attacks~
-
-COPY ~karatur/itm/KTHLM02.itm~ ~override/KTHLM02.itm~
-  SAY 0x8 ~Stone Eye~
-  SAY 0xC ~Left Eye of Genzou~
-  SAY 0x50 ~Stone Eye~
-  SAY 0x54 ~Left Eye of Genzou
-
-Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastary, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
-
-Rank II Statistics:
-
-Lesser Blindness -2 Thac0, +2 AC
-Protection from all forms of Gaze Attacks
-Gains Wondering Eye 1/Day (Wizard Eye)~
-
-COPY ~karatur/itm/KTHLM03.itm~ ~override/KTHLM03.itm~
-  SAY 0x8 ~Stone Eye~
-  SAY 0xC ~Left Eye of Genzou~
-  SAY 0x50 ~Stone Eye~
-  SAY 0x54 ~Left Eye of Genzou
-
-Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastary, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
-
-Rank III Statistics:
-
-Blindsight
-+1 Dexterity
-Protection from all forms of Gaze Attacks
-Gains Wondering Eye 1/Day (Wizard Eye)
-Gains Blind Strike 1/Day (Every hit Crits for 5 seconds)~
-
-COPY ~karatur/itm/KTHLM04.itm~ ~override/KTHLM04.itm~
-  SAY 0x8 ~Stone Eye~
-  SAY 0xC ~Left Eye of Genzou~
-  SAY 0x50 ~Stone Eye~
-  SAY 0x54 ~Left Eye of Genzou
-
-Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastary, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
-
-Rank IV Statistics:
-
-Blindsight
-Invravision
-+1 Dexterity
-+1 Wisdom
-Protection from all forms of Gaze Attacks
-Gains Wondering Eye 2/Day (Wizard Eye)
-Gains Blind Strike 2/Day (Every hit Crits for 5 seconds)~
+COPY ~%MOD_FOLDER%/itm/KTHLM04.itm~ ~override/KTHLM04.itm~
+  SAY NAME1 @100
+  SAY NAME2 @101
+  SAY UNIDENTIFIED_DESC @100
+  SAY IDENTIFIED_DESC @105
 
 //Copying Spells
 
-COPY ~karatur/spl/KTHLM1.spl~ ~override/KTHLM1.spl~
-  SAY 0x8 ~Stone Eye~
-  SAY 0xC ~Left Eye of Genzou I~
-  SAY 0x50 ~Stone Eye~
-  SAY 0x54 ~Left Eye of Genzou I~
+COPY ~%MOD_FOLDER%/spl/KTHLM1.spl~ ~override/KTHLM1.spl~
+  SAY NAME1 @100
+  SAY NAME2 @106
+  SAY UNIDENTIFIED_DESC @100
+  SAY IDENTIFIED_DESC @106
   
-COPY ~karatur/spl/KTHLM2.spl~ ~override/KTHLM2.spl~
-  SAY 0x8 ~Stone Eye~
-  SAY 0xC ~Left Eye of Genzou II~
-  SAY 0x50 ~Stone Eye~
-  SAY 0x54 ~Left Eye of Genzou II~
+COPY ~%MOD_FOLDER%/spl/KTHLM2.spl~ ~override/KTHLM2.spl~
+  SAY NAME1 @100
+  SAY NAME2 @107
+  SAY UNIDENTIFIED_DESC @100
+  SAY IDENTIFIED_DESC @107
 
-COPY ~karatur/spl/KTHLM3.spl~ ~override/KTHLM3.spl~
-  SAY 0x8 ~Stone Eye~
-  SAY 0xC ~Left Eye of Genzou III~
-  SAY 0x50 ~Stone Eye~
-  SAY 0x54 ~Left Eye of Genzou III~
+COPY ~%MOD_FOLDER%/spl/KTHLM3.spl~ ~override/KTHLM3.spl~
+  SAY NAME1 @100
+  SAY NAME2 @108
+  SAY UNIDENTIFIED_DESC @100
+  SAY IDENTIFIED_DESC @108
 
-//Copying BAM
+// Copying BAM files
 
-COPY ~karatur/BAM/ion1b.bam~ ~override/ion1b.bam~
-COPY ~karatur/BAM/ion2b.bam~ ~override/ion2b.bam~
-COPY ~karatur/BAM/kteye.bam~ ~override/kteye.bam~
-COPY ~karatur/BAM/ktsnow.bam~ ~override/ktsnow.bam~
-COPY ~karatur/BAM/mnbelt01.bam~ ~override/mnbelt01.bam~
-COPY ~karatur/BAM/mnbelt08.bam~ ~override/mnbelt08.bam~
-COPY ~karatur/BAM/mnbelt12.bam~ ~override/mnbelt12.bam~
-COPY ~karatur/BAM/mnboot15.bam~ ~override/mnboot15.bam~
-COPY ~karatur/BAM/mnclaw01.bam~ ~override/mnclaw01.bam~
-COPY ~karatur/BAM/mngift01.bam~ ~override/mngift01.bam~
-COPY ~karatur/BAM/mnglov01.bam~ ~override/mnglov01.bam~
-COPY ~karatur/BAM/mnglov02.bam~ ~override/mnglov02.bam~
-COPY ~karatur/BAM/mnglov03.bam~ ~override/mnglov03.bam~
-COPY ~karatur/BAM/mnrobe01.bam~ ~override/mnrobe01.bam~
-COPY ~karatur/BAM/mnrobe02.bam~ ~override/mnrobe02.bam~
-COPY ~karatur/BAM/mnrobe03.bam~ ~override/mnrobe03.bam~
-COPY ~karatur/BAM/mnrobe04.bam~ ~override/mnrobe04.bam~
-COPY ~karatur/BAM/mnrobe06.bam~ ~override/mnrobe06.bam~
-COPY ~karatur/BAM/mnshur01.bam~ ~override/mnshur01.bam~
-COPY ~karatur/BAM/mnshur03.bam~ ~override/mnshur03.bam~
-COPY ~karatur/BAM/mnshur04.bam~ ~override/mnshur04.bam~
-COPY ~karatur/BAM/KTsw2r.bam~ ~override/KTsw2r.bam~
-COPY ~karatur/BAM/KTsp2r.bam~ ~override/KTsp2r.bam~
+COPY_LARGE "karatur/bam" "override"
+
 
 //Copying vvc
 
-COPY ~karatur/vvc/ion1b.vvc~ ~override/ion1b.vvc~
-COPY ~karatur/vvc/ion2b.vvc~ ~override/ion2b.vvc~
+COPY ~%MOD_FOLDER%/vvc/ion1b.vvc~ ~override/ion1b.vvc~
+COPY ~%MOD_FOLDER%/vvc/ion2b.vvc~ ~override/ion2b.vvc~
 
 //Copying eff
 
-COPY ~karatur/eff/ktbrc02.eff~ ~override/ktbrc02.eff~
-COPY ~karatur/eff/ktbrc21.eff~ ~override/ktbrc21.eff~
-COPY ~karatur/eff/ktbrc03.eff~ ~override/ktbrc03.eff~
-COPY ~karatur/eff/ktbrc31.eff~ ~override/ktbrc31.eff~
-COPY ~karatur/eff/ktbrc04.eff~ ~override/ktbrc04.eff~
-COPY ~karatur/eff/ktbrc04.eff~ ~override/ktbrc04.eff~
+COPY ~%MOD_FOLDER%/eff/ktbrc02.eff~ ~override/ktbrc02.eff~
+COPY ~%MOD_FOLDER%/eff/ktbrc21.eff~ ~override/ktbrc21.eff~
+COPY ~%MOD_FOLDER%/eff/ktbrc03.eff~ ~override/ktbrc03.eff~
+COPY ~%MOD_FOLDER%/eff/ktbrc31.eff~ ~override/ktbrc31.eff~
+COPY ~%MOD_FOLDER%/eff/ktbrc04.eff~ ~override/ktbrc04.eff~
+COPY ~%MOD_FOLDER%/eff/ktbrc04.eff~ ~override/ktbrc04.eff~
 
-//COPY Store File
 
-COPY ~karatur/sto/KTStore.sto~ ~override/KTStore.sto~
-  SAY 0x8 ~Kara-Tur Store~
-  SAY 0xC ~Store of the Meager Three~
-  SAY 0x50 ~Kara-Tur Store~
-  SAY 0x54 ~Store of the Meager Three~
+// Install Store File
+
+COPY ~%MOD_FOLDER%/sto/ktstore.sto~ ~override~
+  SAY NAME2 @110
+
+
