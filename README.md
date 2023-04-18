@@ -1,3 +1,8 @@
+# T'Was a Slow Boat from Kara-Tur
+A mod for BG:EE that introduces a new quest and some new items with an
+Oriental Adventures flavor to Baldur's Gate: Enhanced Edition.
+
+
 ## Introduction
 
 This is an old mod for BG:EE, originally written by Corsymyr and published
@@ -9,7 +14,7 @@ Since several people were asking about this mod on the Gibberlings Three- and
 Infinity Engine Discords, I created this bug-fixed version of the mod as a
 small service to the modding community.  I do not intend to claim this mod as
 my own work and should the original author return and demand that I remove
-this, I I will do so.
+this, I will immediately do so.
 
 
 Corsymyr's original description:

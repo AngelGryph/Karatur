@@ -19,11 +19,9 @@ ALWAYS
 END
 
 
-////////////////////////
-////////////////////////
-// Language Selection //
-////////////////////////
-////////////////////////
+// ==================
+// Language Selection
+// ==================
 
 LANGUAGE 
          ~English~
@@ -31,7 +29,15 @@ LANGUAGE
          ~karatur/language/english/ktsetup.tra~
          ~weidu_external/lang/karatur/english/ktsetup.tra~
 
+
+// ==============
+// Main Component
+// ==============
+
 BEGIN @5
+
+REQUIRE_PREDICATE GAME_INCLUDES "bg1" @4
+
 
 // Extending existing area scripts
 
