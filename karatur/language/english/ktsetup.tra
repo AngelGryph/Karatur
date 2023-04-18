@@ -20,7 +20,7 @@ This must be the "Bag of Red" that Seini Korasu asked you to retrieve for him. L
 @20   = ~Sash of the Initiate~
 @21   = ~Sash of the Initiate:
   
-This sash is indicative of those worn by Mages from the Eastern Relams. It grants the wearer a level of higher learning, and an improved sense of fortitude
+This sash is indicative of those worn by Mages from the Eastern Realms. It grants the wearer a level of higher learning, and an improved sense of fortitude
 
 Statistics:
 Adds +1 to Intelligence
@@ -29,7 +29,7 @@ Weight: 2~
 @22   = ~Belt of the Wise~
 @23   = ~Belt of the Wise:
 
-This belt benifits it's wearer by imparting additional Wisdom to the wearer, in addition it allows the absorbtion of some of the electrical damage focused on the wearer.
+This belt benefits it's wearer by imparting additional Wisdom to the wearer, in addition it allows the absorption of some of the electrical damage focused on the wearer.
 
 Statistics:
 Adds +1 to Wisdom
@@ -38,7 +38,7 @@ Weight: 2~
 @24   = ~Belt of Luck~
 @25   = ~Belt of Luck:
 
-This belt works to insure that one is able to have an edge against any situation with an added sense of luck. The wearer of thsi belt aslo gains more insight into magical items and their workings.
+This belt works to insure that one is able to have an edge against any situation with an added sense of luck. The wearer of this belt also gains more insight into magical items and their workings.
 
 Statistics:
 Adds +10 to Lore
@@ -73,17 +73,17 @@ Weight: 2~
 @32   = ~Fists of Poison~
 @33   = ~Fist of Poison:
   
-These gloves are mearly wraps around one's fists. These particular wraps are intertwinined with poisoned glass and adds poision damage to creatures.
+These gloves are merely wraps around one's fists. These particular wraps are intertwined with poisoned glass and adds poison damage to creatures.
 
 STATISTICS
 
-+3 Posion damage
++3 Poison damage
 
 Weight: 2~
 @34   = ~Fists of Fire~
 @35   = ~Fist of Fire:
   
-These gloves are mearly wraps around one's fists. These particular wraps are intertwinined with magical embers and add fire damage to creatures.
+These gloves are merely wraps around one's fists. These particular wraps are intertwined with magical embers and add fire damage to creatures.
 
 STATISTICS
 
@@ -93,7 +93,7 @@ Weight: 2~
 @36   = ~Fists of Shock~
 @37   = ~Fist of Shock:
   
-These gloves are mearly wraps around one's fists. These particular wraps are intertwinined with magical energy globes and add energy damage to creatures.
+These gloves are merely wraps around one's fists. These particular wraps are intertwined with magical energy globes and add energy damage to creatures.
 
 STATISTICS
 
@@ -178,11 +178,11 @@ STATISTICS:
 Armor Class: -5
 Requires 20 Wisdom
 Weight:4~
-@54   = ~Polearm~
+@54   = ~Pole-arm~
 @55   = ~Masterwork Kwan Dao~
 @56   = ~Masterwork Kwan Dao:
 
-This is the polearm of choice by most Karaturan Foot Soldiers. The bite of this weapon is strong, and can take a rider off his mount in one strike.
+This is the pole-arm of choice by most Karaturan Foot Soldiers. The bite of this weapon is strong, and can take a rider off his mount in one strike.
 
 STATISTICS:
 Damage 1d12
@@ -191,17 +191,17 @@ Weight:4~
 @57   = ~+1 Kwan Dao~
 @58   = ~+1 Kwan Dao:
 
-This is the polearm of choice by most Karaturan Foot Soldiers. The bite of this weapon is strong, and can take a rider off his mount in one strike.
+This is the pole-arm of choice by most Karaturan Foot Soldiers. The bite of this weapon is strong, and can take a rider off his mount in one strike.
 
 STATISTICS:
 Damage 1d12+1
 Thac0 +1
 Weight:4~
 @59   = ~Pudao~
-@60   = ~Masterwok Pudao~
+@60   = ~Masterwork Pudao~
 @61   = ~Masterwork Pudao:
 
-One of the earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end. When the civilized races mastered metals, spearheads were made from iron and steel. Having reached this end, weaponsmiths began experimenting with different types of spearheads, thus leading to the development of certain polearm types.
+One of the earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end. When the civilized races mastered metals, spearheads were made from iron and steel. Having reached this end, weaponsmiths began experimenting with different types of spearheads, thus leading to the development of certain pole-arm types.
 
 STATISTICS:
 
@@ -216,7 +216,7 @@ Weight: 3~
 @62   = ~Pudao +1~
 @63   = ~Pudao +1
 
-One of the earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end. When the civilized races mastered metals, spearheads were made from iron and steel. Having reached this end, weaponsmiths began experimenting with different types of spearheads, thus leading to the development of certain polearm types.
+One of the earliest weapons, dating back to the most primitive of times, the first spears were simply wooden poles or sticks sharpened at one end. When the civilized races mastered metals, spearheads were made from iron and steel. Having reached this end, weaponsmiths began experimenting with different types of spearheads, thus leading to the development of certain pole-arm types.
 
 STATISTICS:
 
@@ -321,9 +321,9 @@ Proficiency Type: Scimitar/Wakizashi/Ninjatō
 Type: One-handed
 Requires:5 Strength
 Weight: 3~
-@79   = ~Ninjato~
-@80   = ~Masterwork Ninjato~
-@81   = ~Masterworked Ninjato
+@79   = ~Ninjatō~
+@80   = ~Masterwork Ninjatō~
+@81   = ~Masterworked Ninjatō
 
 The sword of the ninja, the ninjatō, is of lower quality than other Kara-Turan blades such as the katana. The ninjatō is short with a straight blade, making it ideal for subterfuge. The ninjatō is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
 
@@ -336,8 +336,8 @@ Proficiency Type: Scimitar/Wakizashi/Ninjatō
 Type: One-handed
 Requires:6 Strength
 Weight: 5~
-@82   = ~+1 Ninjato~
-@83   = ~+1 Ninjato
+@82   = ~+1 Ninjatō~
+@83   = ~+1 Ninjatō
 
 The sword of the ninja, the ninjatō, is of lower quality than other Kara-Turan blades such as the katana. The ninjatō is short with a straight blade, making it ideal for subterfuge. The ninjatō is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
 
@@ -355,7 +355,7 @@ Weight: 5~
 @85   = ~Masterwork No-Dachi~
 @86   = ~Masterwork No-Dachi
 
-The No-Dachi sword is a derivative of the Katana. Karaturan Weaponsmiths have always looked for ways to improve existing weapons. In an effort to improve the Katana, the blade was lengthened. Eventually, the handle had to be extended and two hands became necessary to properly swing the sword. The primary function of No-Dachi swords is cleaving mounted knights and breaking up pike formations. This one is particularly good at its job as it has been enchanced by masterworking the item.
+The No-Dachi sword is a derivative of the Katana. Karaturan Weaponsmiths have always looked for ways to improve existing weapons. In an effort to improve the Katana, the blade was lengthened. Eventually, the handle had to be extended and two hands became necessary to properly swing the sword. The primary function of No-Dachi swords is cleaving mounted knights and breaking up pike formations. This one is particularly good at its job as it has been enhanced by masterworking the item.
 
 STATISTICS:
 
@@ -457,7 +457,7 @@ How this rare item made it from Kara-Tur to the Sword Coast is quite a mystery. 
 SPECIAL:
 
 - This Shuriken will return to the hand of it's owner.
-- Weilder can throw this weapon 3 times a round while equipped.
+- Wielder can throw this weapon 3 times a round while equipped.
 - Adds Strength Bonus (if any) to damage.
 
 STATISTICS:
@@ -482,7 +482,7 @@ Blindness -4 Thac0, +4 AC, Reduced Vision and Movement Rate
 Protection from all forms of Gaze Attacks~
 @103  = ~Left Eye of Genzou
 
-Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastary, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
+Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastery, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
 
 Rank II Statistics:
 
@@ -491,7 +491,7 @@ Protection from all forms of Gaze Attacks
 Gains Wondering Eye 1/Day (Wizard Eye)~
 @104  = ~Left Eye of Genzou
 
-Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastary, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
+Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastery, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
 
 Rank III Statistics:
 
@@ -502,7 +502,7 @@ Gains Wondering Eye 1/Day (Wizard Eye)
 Gains Blind Strike 1/Day (Every hit Crits for 5 seconds)~
 @105  = ~Left Eye of Genzou
 
-Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastary, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
+Genzou was born blind, ridiculed and beaten as a child and eventually abandoned for dead. He was found by Monks from a nearby Monastery, who took young Genzou in and trained him. He excelled in fighting blindly, and eventually became the lead trainer for all Monks in his order. Legend has it that this Stone Eye is actually the real left eye of Genzou. When worn about the head it will cause blindness, yet through trust and training the vision of the wearer becomes greater than before. Training in the martial arts and spending blood will unlock greater abilities. It is rumored that if the Right Eye and Left Eye are worn together that the wearer would gain all of Genzou's legendary abilities.
 
 Rank IV Statistics:
 

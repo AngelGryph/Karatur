@@ -50,13 +50,15 @@ END
 
 // Compile Dialog
 
-COMPILE ~%MOD_FOLDER%/DLG/KTMonk.d~
-COMPILE ~%MOD_FOLDER%/DLG/KTSirene.d~
+COMPILE ~%MOD_FOLDER%/dlg/ktmonk.d~ USING ~%tra_loc%/%LANGUAGE%/ktmonk.tra~
+COMPILE ~%MOD_FOLDER%/dlg/ktsirene.d~ USING ~%tra_loc%/%LANGUAGE%/ktsirene.tra~
+
 
 // Compile Scripts
 
-COMPILE ~%MOD_FOLDER%/baf/KTSUC01.baf~
-COMPILE ~%MOD_FOLDER%/baf/KTGOL01.baf~
+COMPILE ~%MOD_FOLDER%/baf/ktsuc01.baf~
+COMPILE ~%MOD_FOLDER%/baf/ktgol01.baf~
+
 
 // Installing Creature Files
 
@@ -124,9 +126,7 @@ COPY ~%MOD_FOLDER%/itm/KTRedB.itm~ ~override/KTRedB.itm~
   SAY NAME1 @16
   SAY NAME2 @17
   SAY UNIDENTIFIED_DESC @16
-  SAY IDENTIFIED_DESC ~Red Bag:
-  
-This must be the @16 that Seini Korasu asked you to retrieve for him. Looking at the item it seems unreasonably heavy, but in proximity of the Ice Crystal, it becomes quite light and easy to move. You should return this to Seini Korasu as soon as possible.~
+  SAY IDENTIFIED_DESC @18
 
 COPY ~%MOD_FOLDER%/itm/KTblt01.itm~ ~override/KTblt01.itm~
   SAY NAME1 @19
@@ -314,6 +314,7 @@ COPY ~%MOD_FOLDER%/itm/KTSHUR02.itm~ ~override/KTSHUR02.itm~
   SAY UNIDENTIFIED_DESC @89
   SAY IDENTIFIED_DESC @93
 
+
 //Copying Relics
 
 COPY ~%MOD_FOLDER%/itm/KTSP2R.itm~ ~override/KTSP2R.itm~
@@ -358,6 +359,7 @@ COPY ~%MOD_FOLDER%/itm/KTHLM04.itm~ ~override/KTHLM04.itm~
   SAY UNIDENTIFIED_DESC @100
   SAY IDENTIFIED_DESC @105
 
+
 //Copying Spells
 
 COPY ~%MOD_FOLDER%/spl/KTHLM1.spl~ ~override/KTHLM1.spl~
@@ -378,6 +380,7 @@ COPY ~%MOD_FOLDER%/spl/KTHLM3.spl~ ~override/KTHLM3.spl~
   SAY UNIDENTIFIED_DESC @100
   SAY IDENTIFIED_DESC @108
 
+
 // Copying BAM files
 
 COPY_LARGE "karatur/bam" "override"
@@ -387,6 +390,7 @@ COPY_LARGE "karatur/bam" "override"
 
 COPY ~%MOD_FOLDER%/vvc/ion1b.vvc~ ~override/ion1b.vvc~
 COPY ~%MOD_FOLDER%/vvc/ion2b.vvc~ ~override/ion2b.vvc~
+
 
 //Copying eff
 
